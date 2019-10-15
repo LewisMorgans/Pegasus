@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { SidebarService } from './sidebar/sidebar.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { SidebarService } from './services/sidebar.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,17 @@ import { SidebarService } from './sidebar/sidebar.service';
 })
 export class AppComponent {
   title = 'angular-pro-sidebar';
-  constructor(public sidebarservice: SidebarService) { }
+
+  constructor(public sidebarservice: SidebarService) {
+    this.detectResolution();
+   }
+
+  private detectResolution() {
+    if(window.innerWidth < 768) {
+      this.sidebarservice.setSidebarState(true);
+    }
+  }
+
   toggleSidebar() {
     this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
   }
