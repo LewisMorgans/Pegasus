@@ -31,3 +31,30 @@ table {
     cursor: pointer;
   }
   
+
+  
+.buttons {
+  font-size: 25px;
+}
+
+i {
+  padding: 32px;
+  color:#45AD83;
+  cursor: pointer;
+}
+
+i:hover {
+  animation: swing ease-in-out .5s 1 alternate;
+}
+
+.fade2 {
+transform: scale(0.9);
+opacity: 0;
+transition: all .2s linear;
+display: block !important;
+}
+
+.fade2.show {
+opacity: 1;
+transform: scale(1);
+}
